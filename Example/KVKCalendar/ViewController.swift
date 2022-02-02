@@ -38,6 +38,7 @@ final class ViewController: UIViewController {
             style.timeline.currentLineHourWidth = 45
             style.timeline.offsetTimeX = 2
             style.timeline.offsetLineLeft = 2
+            style.timeline.allowZoom = true
             style.headerScroll.titleDateAlignment = .center
             style.headerScroll.isAnimateTitleDate = true
             style.headerScroll.heightHeaderWeek = 70

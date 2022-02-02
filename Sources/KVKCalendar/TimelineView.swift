@@ -209,6 +209,7 @@ final class TimelineView: UIView, EventDateProtocol, CalendarTimer {
             
             for (event, rect) in zip(todayEvents, rects) {
                 event.frame = rect
+                event.eventViewDelegate?.updateTextFrame(rect)
             }
         }
     }

@@ -9,6 +9,10 @@
 
 import UIKit
 
+protocol EventViewDelegate {
+    func updateTextFrame(_ frame: CGRect)
+}
+
 final class EventView: EventViewGeneral {
     private let pointX: CGFloat = 5
         
@@ -31,7 +35,7 @@ final class EventView: EventViewGeneral {
     
     init(event: Event, style: Style, frame: CGRect) {
         super.init(style: style, event: event, frame: frame)
-        
+        eventViewDelegate = self
         var textFrame = frame
         textFrame.origin.x = pointX
         textFrame.origin.y = 0
@@ -137,7 +141,18 @@ extension EventView: PointerInteractionProtocol {
         }
         return pointerStyle
     }
-    
+}
+
+extension EventView: EventViewDelegate {
+    func updateTextFrame(_ frame: CGRect) {
+        var textFrame = frame
+        textFrame.origin.x = pointX
+        textFrame.origin.y = 0
+        textFrame.size.height = textFrame.height
+        textFrame.size.width = textFrame.width - pointX
+        textView.frame = textFrame
+        textView.text = event.text
+    }
 }
 
 #endif

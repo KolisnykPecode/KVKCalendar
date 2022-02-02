@@ -16,7 +16,7 @@ open class EventViewGeneral: UIView, CalendarTimer {
     }
     
     weak var delegate: EventDelegate?
-    
+    var eventViewDelegate: EventViewDelegate?
     private var originalLocation: CGPoint = .zero
     private let states: Set<EventViewState>
     
