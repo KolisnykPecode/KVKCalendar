@@ -268,7 +268,6 @@ final class TimelineView: UIView, EventDateProtocol, CalendarTimer {
             
             self.currentLineView.frame.origin.y = pointY - (self.currentLineView.frame.height * 0.5)
             self.currentLineView.valueHash = nextDate.minute.hashValue
-            self.currentLineView.date = nextDate
             
             if let timeNext = self.getTimelineLabel(hour: nextDate.hour + 1) {
                 timeNext.isHidden = self.currentLineView.frame.intersects(timeNext.frame)
